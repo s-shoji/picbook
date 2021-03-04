@@ -32,7 +32,7 @@ class TweetsController < ApplicationController
 
   private
   def tweet_params
-    params.require(:tweet).permit(:name, :image, :text)
+    params.require(:tweet).permit(:name, :text)
   end
 
   def set_tweet
@@ -44,5 +44,6 @@ class TweetsController < ApplicationController
       redirect_to action: :index
     end
   end
+
 
 end
