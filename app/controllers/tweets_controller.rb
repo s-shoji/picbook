@@ -3,8 +3,10 @@ class TweetsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @tweets = Tweet.includes(:user).order("created_at DESC")
-    render json: @tweets
+    # @tweets = Tweet.includes(:user).order("created_at DESC")
+    query = "SELECT * FROM tweets"
+    @tweets = Tweet.find_by_sql(query)
+    # render json: @tweets
   end
 
   def new
